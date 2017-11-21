@@ -1,26 +1,47 @@
 ---
 layout: post
-title: test
+title: 把博客安置在Netlify上
 date: 2017-11-21 15:32:24.000000000 +09:00
 ---
+## 安装Hexo  
+### 安装基本软件  
+1. Node.js
+2. 安装git  
 
-# 测试图片
-![](/assets/images/15112481900461.jpg)
-![](/source/images/15112501786429.jpg)
+### 安装Hexo  
+
+`npm install -g hexo-cli`   
+
+执行后系统内即可完成hexo的安装，还需执行hexo命令初始化：  
+
+`$ hexo init <folder>
+$ cd <folder>
+$ npm install
+` 
+
+## 修改部署  
+### 生成新的文档  
+`
+hexo new {layout} draft/post/page {title} 
+`  
+修改文件内容后执行生成部署
+
+### 文本内增加图片
+需要配置hexo的_config.yml文件，修改   
+`post_asset_folder选项设置为true`  
+在Hexo文档目录中安装新插件
+`npm install hexo-asset-image --save`  
+这样通过hexo new生成新文档的时候会生成同名的一个目录，把截图放进去即可完成配置。
+目前我使用的是Mweb方式增加截图，截图复制在别的场景下很方便，但是在Hexo中有些需要修改的地方暂时没法配置，比如复制截图保存的路径是./media/xxx.jpg 如果能够自动配置成文件名路径就特别方便了，不知道作者会不会增加这个选项。  
+
+### 生成部署  
+`
+hexo clean; hexo g; hexo d;
+`  
+![](/source/images/15112507811028.jpg)
 
 
-
-
----
-layout: post
-title: test
-date: 2017-11-21 15:32:24.000000000 +09:00
----
-
-# 测试图片
-![](http://ozrbj341q.bkt.clouddn.com/15112481900461.jpg)
-![](http://ozrbj341q.bkt.clouddn.com/15112501786429.jpg)
-
+# 使用Jekyll部署
 
 
 
