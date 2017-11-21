@@ -38,8 +38,7 @@ hexo new {layout} draft/post/page {title}
 `
 hexo clean; hexo g; hexo d;
 `  
-![](/source/images/15112507811028.jpg)
-
+![](http://ozrbj341q.bkt.clouddn.com/15112507811028.jpg)
 
 # 使用Jekyll部署
 
