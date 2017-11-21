@@ -41,20 +41,76 @@ hexo clean; hexo g; hexo d;
 ![](http://ozrbj341q.bkt.clouddn.com/15112507811028.jpg)
 
 # 使用Jekyll部署
+## 安装基础环境  
+1. 安装ruby
+2. 安装jekyll
+```
+sudo gem install jekyll
+```  
+如果速度慢的话，使用淘宝的源
+```
+gem source -r  https://rubygems.org/
+gem source -a  https://ruby.taobao.org/ 
+```  
+3. 进入下载的目录
+执行命令安装必须的安装包
+```
+bundle install
+```
+
+## 配置图片插入功能
+使用github上传图片文件的功能一直没有成功，最后还是决定使用七牛的对象存储服务
+### 七牛服务
+以MWeb编辑器为例子，打开MWeb，MWeb-偏好设置-Publishing，看到下面的界面后
+#### API URL 选择
+![](http://ozrbj341q.bkt.clouddn.com/15112546382985.jpg)
+
+点击右下角七牛云处即可弹出七牛云的配置页面
+![](http://ozrbj341q.bkt.clouddn.com/15112546526041.jpg)
+
+七牛云存储区域不同，对应的API接口URL也会有所不同，按照创建存储空间所选的地区选择即可
+![](http://ozrbj341q.bkt.clouddn.com/15112547131951.jpg)
 
 
+#### Bucket Name
+
+填入创建存储空间的名字即可。
+
+#### Access Key 与Secret Key
+
+登录七牛云后，进入管理控制台后，在个人面板中选择秘钥管理
+
+![](http://ozrbj341q.bkt.clouddn.com/15112547448443.jpg)
+
+即可查到对应的AK与SK
+![](http://ozrbj341q.bkt.clouddn.com/15112547560115.jpg)
+#### Image Url Prefix
+
+此处填入该对象存储的加速域名/测试域名，可在控制台-对象存储右侧看到。填入即可。
+
+由于测试域名有一定的限制，推荐使用加速域名，具体操作自行看文档。
+
+验证
+
+点击validate就可以选择一张图片进行测试
 
 
+### 本地配置
+#### 图片上传
 
+插入图片以后，图片的路径仍然本地路径，所以要进行最后一步，图片上传到七牛云，并且替换所有的图片地址为上传后的可以访问的url
+在工具栏选择 Publish-Upload Local Images to… 打开下面的界面，会显示所有你在此文件中引入的本地图片
+![](http://ozrbj341q.bkt.clouddn.com/15112550957592.jpg)
+点击Upload Images后，所有的图片都有了自己对应的上传后的URL，如
+![](http://ozrbj341q.bkt.clouddn.com/15112551105880.jpg)
 
+#### 地址替换
 
+当图片都上传成功后，就剩下最后一步，替换我们文档中的本地路径为网络路径。
 
+点击New Document后，会弹出一个新的文档，此文档中会把所有本地的路径换成对应的网络路径，我们只要保存此文件，覆盖我们原来的文件即可。
 
-
-
-
-
-
+如果更换地址后对文档再进行编辑，图片处理的方式只要重复图片上传、地址替换即可。
 
 
 
