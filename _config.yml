@@ -9,6 +9,7 @@ url: "http://www.bitupdown.com"
 
 permalink: /:year/:month/:title/
 
+theme: minimal-mistakes-jekyll
 # Format
 highlighter: rouge
 
